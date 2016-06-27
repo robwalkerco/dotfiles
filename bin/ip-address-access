@@ -5,5 +5,5 @@ IP=$(dig @resolver1.opendns.com myip.opendns.com +short)
 echo "My ip address is - $IP"
 
 aws ec2 authorize-security-group-ingress --group-id sg-e1f96a86 --port 22 --protocol tcp --cidr $IP/32
-aws ec2 authorize-security-group-ingress --group-id sg-6d48db0a --port 22 --protocol tcp --cidr $IP/32
+aws ec2 authorize-security-group-ingress --group-id sg-8be577ec --port 22 --protocol tcp --cidr $IP/32
 aws ec2 authorize-security-group-ingress --group-name ip-address-access --port 0-65535 --protocol all --cidr $IP/32

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+username="RobWalker"
+environment="prod"
+
 echo -n "What's the ip address of a suitable server? (https://eu-west-1.console.aws.amazon.com/ec2/v2/home?region=eu-west-1#Instances:search=pt-api-prod-sched;sort=instanceType): "
 read ip
 
@@ -11,4 +14,4 @@ read end
 
 ssh-add
 
-ssh -t -A RobWalker@prod-bastion.papertrail.io "ssh RobWalker@$ip 'cd /var/app/current; php artisan stats:usage $start $end'"
+ssh -t -A $username@$environment-bastion.papertrail.io "ssh $username@$ip 'cd /var/app/current; php artisan stats:usage $start $end'"
